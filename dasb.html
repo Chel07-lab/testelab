@@ -1,0 +1,1561 @@
+<html class="scroll-smooth" lang="pt-BR">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   Meu Mentor - Plataforma de Mentorias e Matching
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;display=swap" rel="stylesheet"/>
+  <style>
+   body {
+      font-family: 'Inter', sans-serif;
+    }
+    /* Scrollbar for better UX */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    ::-webkit-scrollbar-thumb {
+      background-color: #a78bfa;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+  </style>
+ </head>
+ <body class="bg-gray-50 text-gray-800 min-h-screen flex flex-col">
+  <!-- Navbar -->
+  <nav class="bg-purple-700 text-white shadow-md sticky top-0 z-50">
+   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
+    <a class="text-2xl font-bold tracking-wide hover:text-purple-300" href="#dashboard">
+     Meu Mentor
+    </a>
+    <div class="hidden md:flex space-x-6 font-semibold text-sm">
+     <a class="hover:text-purple-300 transition" href="#dashboard">
+      Dashboard
+     </a>
+     <a class="hover:text-purple-300 transition" href="#perfil">
+      Perfil
+     </a>
+     <a class="hover:text-purple-300 transition" href="#matching">
+      Matching
+     </a>
+     <a class="hover:text-purple-300 transition" href="#perfil-detalhado">
+      Perfil Detalhado
+     </a>
+     <a class="hover:text-purple-300 transition" href="#confirmacao">
+      Confirmação Manual
+     </a>
+     <a class="hover:text-purple-300 transition" href="#feedback">
+      Feedback
+     </a>
+     <a class="hover:text-purple-300 transition" href="#configuracoes">
+      Configurações
+     </a>
+     <a class="hover:text-purple-300 transition" href="#ajuda">
+      Ajuda
+     </a>
+    </div>
+    <button aria-label="Abrir menu" class="md:hidden focus:outline-none" id="btn-menu">
+     <i class="fas fa-bars text-xl">
+     </i>
+    </button>
+   </div>
+   <div class="hidden md:hidden bg-purple-600" id="mobile-menu">
+    <a class="block px-4 py-2 border-b border-purple-500 hover:bg-purple-500 transition" href="#dashboard">
+     Dashboard
+    </a>
+    <a class="block px-4 py-2 border-b border-purple-500 hover:bg-purple-500 transition" href="#perfil">
+     Perfil
+    </a>
+    <a class="block px-4 py-2 border-b border-purple-500 hover:bg-purple-500 transition" href="#matching">
+     Matching
+    </a>
+    <a class="block px-4 py-2 border-b border-purple-500 hover:bg-purple-500 transition" href="#perfil-detalhado">
+     Perfil Detalhado
+    </a>
+    <a class="block px-4 py-2 border-b border-purple-500 hover:bg-purple-500 transition" href="#confirmacao">
+     Confirmação Manual
+    </a>
+    <a class="block px-4 py-2 border-b border-purple-500 hover:bg-purple-500 transition" href="#feedback">
+     Feedback
+    </a>
+    <a class="block px-4 py-2 border-b border-purple-500 hover:bg-purple-500 transition" href="#configuracoes">
+     Configurações
+    </a>
+    <a class="block px-4 py-2 hover:bg-purple-500 transition" href="#ajuda">
+     Ajuda
+    </a>
+   </div>
+  </nav>
+  <!-- Main container -->
+  <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+   <!-- Login & Cadastro Section -->
+   <section aria-label="Área de login e cadastro" class="max-w-md mx-auto bg-white rounded-lg shadow-md p-6 mb-12" id="login">
+    <h2 class="text-2xl font-semibold text-purple-700 mb-6 text-center">
+     Acesse o Meu Mentor
+    </h2>
+    <div class="" id="login-form">
+     <form class="space-y-5" id="form-login" novalidate="">
+      <div>
+       <label class="block text-sm font-medium text-gray-700" for="email-login">
+        E-mail
+       </label>
+       <input class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-purple-500 focus:ring focus:ring-purple-300 focus:ring-opacity-50" id="email-login" name="email-login" placeholder="seu@email.com" required="" type="email"/>
+      </div>
+      <div>
+       <label class="block text-sm font-medium text-gray-700" for="senha-login">
+        Senha
+       </label>
+       <input class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-purple-500 focus:ring focus:ring-purple-300 focus:ring-opacity-50" id="senha-login" name="senha-login" placeholder="••••••••" required="" type="password"/>
+      </div>
+      <button class="w-full bg-purple-700 hover:bg-purple-800 text-white font-semibold py-2 rounded-md transition" type="submit">
+       Entrar
+      </button>
+     </form>
+     <div class="mt-6 text-center text-gray-600">
+      Ou faça login com
+     </div>
+     <div class="mt-4 flex justify-center space-x-4">
+      <button aria-label="Login com Google" class="flex items-center space-x-2 border border-gray-300 rounded-md px-4 py-2 hover:bg-gray-100 transition" id="btn-google">
+       <img alt="Logo do Google" class="w-5 h-5" height="20" src="https://storage.googleapis.com/a1aa/image/a1083b1c-0f1c-4c33-c196-81107cbeaafd.jpg" width="20"/>
+       <span class="text-sm font-medium">
+        Google
+       </span>
+      </button>
+      <button aria-label="Login com Facebook" class="flex items-center space-x-2 border border-gray-300 rounded-md px-4 py-2 hover:bg-gray-100 transition" id="btn-facebook">
+       <img alt="Logo do Facebook" class="w-5 h-5" height="20" src="https://storage.googleapis.com/a1aa/image/b8c897a5-7c40-49ba-73cd-279169206553.jpg" width="20"/>
+       <span class="text-sm font-medium">
+        Facebook
+       </span>
+      </button>
+      <button aria-label="Login com LinkedIn" class="flex items-center space-x-2 border border-gray-300 rounded-md px-4 py-2 hover:bg-gray-100 transition" id="btn-linkedin">
+       <img alt="Logo do LinkedIn" class="w-5 h-5" height="20" src="https://storage.googleapis.com/a1aa/image/03010e5d-2184-410c-a2f8-2521ad84d83f.jpg" width="20"/>
+       <span class="text-sm font-medium">
+        LinkedIn
+       </span>
+      </button>
+     </div>
+     <p class="mt-6 text-center text-gray-700">
+      Não tem uma conta?
+      <button class="text-purple-700 font-semibold hover:underline focus:outline-none" id="btn-show-register">
+       Cadastre-se
+      </button>
+     </p>
+    </div>
+    <div class="hidden" id="register-form">
+     <form class="space-y-5" id="form-register" novalidate="">
+      <div>
+       <label class="block text-sm font-medium text-gray-700" for="nome-register">
+        Nome completo
+       </label>
+       <input class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-purple-500 focus:ring focus:ring-purple-300 focus:ring-opacity-50" id="nome-register" name="nome-register" placeholder="Seu nome completo" required="" type="text"/>
+      </div>
+      <div>
+       <label class="block text-sm font-medium text-gray-700" for="email-register">
+        E-mail
+       </label>
+       <input class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-purple-500 focus:ring focus:ring-purple-300 focus:ring-opacity-50" id="email-register" name="email-register" placeholder="seu@email.com" required="" type="email"/>
+      </div>
+      <div>
+       <label class="block text-sm font-medium text-gray-700" for="senha-register">
+        Senha
+       </label>
+       <input class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-purple-500 focus:ring focus:ring-purple-300 focus:ring-opacity-50" id="senha-register" minlength="6" name="senha-register" placeholder="••••••••" required="" type="password"/>
+      </div>
+      <div>
+       <label class="block text-sm font-medium text-gray-700" for="tipo-perfil">
+        Tipo de perfil
+       </label>
+       <select class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-purple-500 focus:ring focus:ring-purple-300 focus:ring-opacity-50" id="tipo-perfil" name="tipo-perfil" required="">
+        <option disabled="" selected="" value="">
+         Selecione o tipo de perfil
+        </option>
+        <option value="mentor">
+         Mentor
+        </option>
+        <option value="candidato">
+         Candidato
+        </option>
+        <option value="empresa">
+         Empresa
+        </option>
+       </select>
+      </div>
+      <div>
+       <label class="block text-sm font-medium text-gray-700" for="setor">
+        Setor de atuação
+       </label>
+       <select class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-purple-500 focus:ring focus:ring-purple-300 focus:ring-opacity-50" id="setor" name="setor" required="">
+        <option disabled="" selected="" value="">
+         Selecione o setor
+        </option>
+        <option value="tecnologia">
+         Tecnologia
+        </option>
+        <option value="educacao">
+         Educação
+        </option>
+        <option value="saude">
+         Saúde
+        </option>
+        <option value="financas">
+         Finanças
+        </option>
+        <option value="marketing">
+         Marketing
+        </option>
+        <option value="outros">
+         Outros
+        </option>
+       </select>
+      </div>
+      <button class="w-full bg-purple-700 hover:bg-purple-800 text-white font-semibold py-2 rounded-md transition" type="submit">
+       Cadastrar
+      </button>
+     </form>
+     <p class="mt-6 text-center text-gray-700">
+      Já tem uma conta?
+      <button class="text-purple-700 font-semibold hover:underline focus:outline-none" id="btn-show-login">
+       Faça login
+      </button>
+     </p>
+    </div>
+   </section>
+   <!-- Dashboard Section -->
+   <section aria-label="Dashboard do usuário" class="hidden" id="dashboard">
+    <h2 class="text-3xl font-bold text-purple-700 mb-6">
+     Dashboard
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+     <!-- Recomendações -->
+     <div class="bg-white rounded-lg shadow p-6">
+      <h3 class="text-xl font-semibold mb-4 text-purple-800">
+       Recomendações de conexões
+      </h3>
+      <ul class="space-y-4 max-h-72 overflow-y-auto">
+       <li class="flex items-center justify-between border-b border-gray-200 pb-3">
+        <div>
+         <p class="font-semibold text-gray-900">
+          Juliana Martins
+         </p>
+         <p class="text-sm text-gray-600">
+          Mentora - Tecnologia
+         </p>
+        </div>
+        <div class="text-purple-700 font-semibold">
+         88%
+        </div>
+       </li>
+       <li class="flex items-center justify-between border-b border-gray-200 pb-3">
+        <div>
+         <p class="font-semibold text-gray-900">
+          Carlos Silva
+         </p>
+         <p class="text-sm text-gray-600">
+          Candidato - Marketing
+         </p>
+        </div>
+        <div class="text-purple-700 font-semibold">
+         85%
+        </div>
+       </li>
+       <li class="flex items-center justify-between border-b border-gray-200 pb-3">
+        <div>
+         <p class="font-semibold text-gray-900">
+          Ana Beatriz
+         </p>
+         <p class="text-sm text-gray-600">
+          Mentora - Finanças
+         </p>
+        </div>
+        <div class="text-purple-700 font-semibold">
+         83%
+        </div>
+       </li>
+       <li class="flex items-center justify-between border-b border-gray-200 pb-3">
+        <div>
+         <p class="font-semibold text-gray-900">
+          Lucas Pereira
+         </p>
+         <p class="text-sm text-gray-600">
+          Candidato - Tecnologia
+         </p>
+        </div>
+        <div class="text-purple-700 font-semibold">
+         80%
+        </div>
+       </li>
+       <li class="flex items-center justify-between border-b border-gray-200 pb-3">
+        <div>
+         <p class="font-semibold text-gray-900">
+          Fernanda Costa
+         </p>
+         <p class="text-sm text-gray-600">
+          Mentora - Educação
+         </p>
+        </div>
+        <div class="text-purple-700 font-semibold">
+         78%
+        </div>
+       </li>
+      </ul>
+     </div>
+     <!-- Status das conexões -->
+     <div class="bg-white rounded-lg shadow p-6">
+      <h3 class="text-xl font-semibold mb-4 text-purple-800">
+       Status das conexões
+      </h3>
+      <ul class="space-y-3">
+       <li class="flex justify-between items-center border-b border-gray-200 pb-2">
+        <span>
+         Pendentes
+        </span>
+        <span class="bg-yellow-300 text-yellow-900 rounded-full px-3 py-1 text-sm font-semibold">
+         3
+        </span>
+       </li>
+       <li class="flex justify-between items-center border-b border-gray-200 pb-2">
+        <span>
+         Ativas
+        </span>
+        <span class="bg-green-300 text-green-900 rounded-full px-3 py-1 text-sm font-semibold">
+         7
+        </span>
+       </li>
+       <li class="flex justify-between items-center">
+        <span>
+         Finalizadas
+        </span>
+        <span class="bg-gray-300 text-gray-700 rounded-full px-3 py-1 text-sm font-semibold">
+         5
+        </span>
+       </li>
+      </ul>
+     </div>
+     <!-- Ações rápidas -->
+     <div class="bg-white rounded-lg shadow p-6 flex flex-col justify-between">
+      <h3 class="text-xl font-semibold mb-4 text-purple-800">
+       Ações rápidas
+      </h3>
+      <div class="space-y-4">
+       <button class="w-full bg-purple-700 hover:bg-purple-800 text-white font-semibold py-3 rounded-md transition flex items-center justify-center space-x-2" id="btn-novo-matching">
+        <i class="fas fa-user-friends">
+        </i>
+        <span>
+         Iniciar novo matching
+        </span>
+       </button>
+       <button class="w-full bg-purple-700 hover:bg-purple-800 text-white font-semibold py-3 rounded-md transition flex items-center justify-center space-x-2" id="btn-atualizar-disc">
+        <i class="fas fa-sync-alt">
+        </i>
+        <span>
+         Atualizar perfil DISC
+        </span>
+       </button>
+      </div>
+      <nav class="mt-6 border-t border-gray-200 pt-4">
+       <ul class="flex flex-wrap gap-3 text-sm font-medium text-purple-700">
+        <li>
+         <a class="hover:underline" href="#perfil">
+          Perfil
+         </a>
+        </li>
+        <li>
+         <a class="hover:underline" href="#matching">
+          Matching
+         </a>
+        </li>
+        <li>
+         <a class="hover:underline" href="#perfil-detalhado">
+          Perfil Detalhado
+         </a>
+        </li>
+        <li>
+         <a class="hover:underline" href="#confirmacao">
+          Confirmação Manual
+         </a>
+        </li>
+        <li>
+         <a class="hover:underline" href="#feedback">
+          Feedback
+         </a>
+        </li>
+        <li>
+         <a class="hover:underline" href="#configuracoes">
+          Configurações
+         </a>
+        </li>
+        <li>
+         <a class="hover:underline" href="#ajuda">
+          Ajuda
+         </a>
+        </li>
+       </ul>
+      </nav>
+     </div>
+    </div>
+   </section>
+   <!-- Perfil do Usuário Section -->
+   <section aria-label="Perfil do usuário" class="hidden max-w-4xl mx-auto bg-white rounded-lg shadow-md p-6 mb-12" id="perfil">
+    <h2 class="text-3xl font-bold text-purple-700 mb-6">
+     Perfil do Usuário
+    </h2>
+    <form class="space-y-6" id="form-perfil">
+     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div>
+       <label class="block text-sm font-medium text-gray-700" for="nome-perfil">
+        Nome completo
+       </label>
+       <input class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-purple-500 focus:ring focus:ring-purple-300 focus:ring-opacity-50" id="nome-perfil" name="nome-perfil" required="" type="text"/>
+      </div>
+      <div>
+       <label class="block text-sm font-medium text-gray-700" for="email-perfil">
+        E-mail
+       </label>
+       <input class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-purple-500 focus:ring focus:ring-purple-300 focus:ring-opacity-50" id="email-perfil" name="email-perfil" required="" type="email"/>
+      </div>
+      <div>
+       <label class="block text-sm font-medium text-gray-700" for="profissao">
+        Profissão
+       </label>
+       <input class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-purple-500 focus:ring focus:ring-purple-300 focus:ring-opacity-50" id="profissao" name="profissao" type="text"/>
+      </div>
+      <div>
+       <label class="block text-sm font-medium text-gray-700" for="setor-perfil">
+        Setor de atuação
+       </label>
+       <select class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-purple-500 focus:ring focus:ring-purple-300 focus:ring-opacity-50" id="setor-perfil" name="setor-perfil">
+        <option disabled="" selected="" value="">
+         Selecione o setor
+        </option>
+        <option value="tecnologia">
+         Tecnologia
+        </option>
+        <option value="educacao">
+         Educação
+        </option>
+        <option value="saude">
+         Saúde
+        </option>
+        <option value="financas">
+         Finanças
+        </option>
+        <option value="marketing">
+         Marketing
+        </option>
+        <option value="outros">
+         Outros
+        </option>
+       </select>
+      </div>
+     </div>
+     <fieldset class="border border-gray-300 rounded-md p-4">
+      <legend class="text-purple-700 font-semibold mb-2">
+       Pontuação DISC
+      </legend>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+       <div>
+        <label class="block text-sm font-medium text-gray-700" for="disc-d">
+         Dominância (D)
+        </label>
+        <input class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-purple-500 focus:ring focus:ring-purple-300 focus:ring-opacity-50" id="disc-d" max="100" min="0" name="disc-d" step="1" type="number"/>
+       </div>
+       <div>
+        <label class="block text-sm font-medium text-gray-700" for="disc-i">
+         Influência (I)
+        </label>
+        <input class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-purple-500 focus:ring focus:ring-purple-300 focus:ring-opacity-50" id="disc-i" max="100" min="0" name="disc-i" step="1" type="number"/>
+       </div>
+       <div>
+        <label class="block text-sm font-medium text-gray-700" for="disc-s">
+         Estabilidade (S)
+        </label>
+        <input class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-purple-500 focus:ring focus:ring-purple-300 focus:ring-opacity-50" id="disc-s" max="100" min="0" name="disc-s" step="1" type="number"/>
+       </div>
+       <div>
+        <label class="block text-sm font-medium text-gray-700" for="disc-c">
+         Conformidade (C)
+        </label>
+        <input class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-purple-500 focus:ring focus:ring-purple-300 focus:ring-opacity-50" id="disc-c" max="100" min="0" name="disc-c" step="1" type="number"/>
+       </div>
+      </div>
+     </fieldset>
+     <fieldset class="border border-gray-300 rounded-md p-4">
+      <legend class="text-purple-700 font-semibold mb-2">
+       Preferências de conexão
+      </legend>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+       <div>
+        <label class="block text-sm font-medium text-gray-700" for="pref-tipo">
+         Tipo de perfil preferido
+        </label>
+        <select class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-purple-500 focus:ring focus:ring-purple-300 focus:ring-opacity-50" id="pref-tipo" name="pref-tipo">
+         <option disabled="" selected="" value="">
+          Selecione o tipo
+         </option>
+         <option value="mentor">
+          Mentor
+         </option>
+         <option value="candidato">
+          Candidato
+         </option>
+         <option value="empresa">
+          Empresa
+         </option>
+        </select>
+       </div>
+       <div>
+        <label class="block text-sm font-medium text-gray-700" for="pref-area">
+         Área de atuação preferida
+        </label>
+        <select class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-purple-500 focus:ring focus:ring-purple-300 focus:ring-opacity-50" id="pref-area" name="pref-area">
+         <option disabled="" selected="" value="">
+          Selecione a área
+         </option>
+         <option value="tecnologia">
+          Tecnologia
+         </option>
+         <option value="educacao">
+          Educação
+         </option>
+         <option value="saude">
+          Saúde
+         </option>
+         <option value="financas">
+          Finanças
+         </option>
+         <option value="marketing">
+          Marketing
+         </option>
+         <option value="outros">
+          Outros
+         </option>
+        </select>
+       </div>
+      </div>
+     </fieldset>
+     <div>
+      <h3 class="text-purple-700 font-semibold mb-3">
+       Histórico de Interações
+      </h3>
+      <div class="max-h-48 overflow-y-auto border border-gray-300 rounded-md p-3 bg-gray-50">
+       <ul class="space-y-3 text-sm text-gray-700">
+        <li>
+         <span class="font-semibold">
+          Juliana Martins
+         </span>
+         - Mentora -
+         <span class="italic">
+          Ativa
+         </span>
+        </li>
+        <li>
+         <span class="font-semibold">
+          Carlos Silva
+         </span>
+         - Candidato -
+         <span class="italic">
+          Pendente
+         </span>
+        </li>
+        <li>
+         <span class="font-semibold">
+          Empresa Tech Solutions
+         </span>
+         - Empresa -
+         <span class="italic">
+          Finalizada
+         </span>
+        </li>
+        <li>
+         <span class="font-semibold">
+          Ana Beatriz
+         </span>
+         - Mentora -
+         <span class="italic">
+          Ativa
+         </span>
+        </li>
+        <li>
+         <span class="font-semibold">
+          Lucas Pereira
+         </span>
+         - Candidato -
+         <span class="italic">
+          Pendente
+         </span>
+        </li>
+       </ul>
+      </div>
+     </div>
+     <button class="bg-purple-700 hover:bg-purple-800 text-white font-semibold py-3 rounded-md w-full transition" type="submit">
+      Salvar alterações
+     </button>
+    </form>
+   </section>
+   <!-- Matching Section -->
+   <section aria-label="Seção de sugestões de matching" class="hidden max-w-5xl mx-auto bg-white rounded-lg shadow-md p-6 mb-12" id="matching">
+    <h2 class="text-3xl font-bold text-purple-700 mb-6">
+     Matching - Sugestões de conexões
+    </h2>
+    <form class="mb-6 grid grid-cols-1 md:grid-cols-4 gap-4" id="form-filtros">
+     <div>
+      <label class="block text-sm font-medium text-gray-700" for="filtro-tipo">
+       Tipo
+      </label>
+      <select class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-purple-500 focus:ring focus:ring-purple-300 focus:ring-opacity-50" id="filtro-tipo" name="filtro-tipo">
+       <option value="">
+        Todos
+       </option>
+       <option value="mentor">
+        Mentor
+       </option>
+       <option value="candidato">
+        Candidato
+       </option>
+       <option value="empresa">
+        Empresa
+       </option>
+      </select>
+     </div>
+     <div>
+      <label class="block text-sm font-medium text-gray-700" for="filtro-area">
+       Área
+      </label>
+      <select class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-purple-500 focus:ring focus:ring-purple-300 focus:ring-opacity-50" id="filtro-area" name="filtro-area">
+       <option value="">
+        Todas
+       </option>
+       <option value="tecnologia">
+        Tecnologia
+       </option>
+       <option value="educacao">
+        Educação
+       </option>
+       <option value="saude">
+        Saúde
+       </option>
+       <option value="financas">
+        Finanças
+       </option>
+       <option value="marketing">
+        Marketing
+       </option>
+       <option value="outros">
+        Outros
+       </option>
+      </select>
+     </div>
+     <div>
+      <label class="block text-sm font-medium text-gray-700" for="filtro-disc">
+       Perfil DISC
+      </label>
+      <select class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-purple-500 focus:ring focus:ring-purple-300 focus:ring-opacity-50" id="filtro-disc" name="filtro-disc">
+       <option value="">
+        Todos
+       </option>
+       <option value="D">
+        Dominância (D)
+       </option>
+       <option value="I">
+        Influência (I)
+       </option>
+       <option value="S">
+        Estabilidade (S)
+       </option>
+       <option value="C">
+        Conformidade (C)
+       </option>
+      </select>
+     </div>
+     <div>
+      <label class="block text-sm font-medium text-gray-700" for="filtro-localidade">
+       Localidade
+      </label>
+      <input class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-purple-500 focus:ring focus:ring-purple-300 focus:ring-opacity-50" id="filtro-localidade" name="filtro-localidade" placeholder="Cidade, Estado" type="text"/>
+     </div>
+    </form>
+    <ul class="space-y-6 max-h-[480px] overflow-y-auto" id="lista-sugestoes">
+     <li class="flex flex-col md:flex-row md:items-center md:justify-between bg-gray-50 rounded-lg p-4 shadow-sm">
+      <div class="flex items-center space-x-4">
+       <img alt="Foto de Juliana Martins, mulher sorridente, cabelos castanhos ondulados, vestindo blusa azul, em ambiente profissional" class="w-20 h-20 rounded-full object-cover" height="80" src="https://storage.googleapis.com/a1aa/image/50b37881-e5cd-4314-6552-b506604f0750.jpg" width="80"/>
+       <div>
+        <p class="font-semibold text-lg text-gray-900">
+         Juliana Martins
+        </p>
+        <p class="text-sm text-gray-600">
+         Mentora - Tecnologia
+        </p>
+       </div>
+      </div>
+      <div class="flex items-center space-x-6 mt-4 md:mt-0">
+       <span class="text-purple-700 font-semibold text-lg">
+        88%
+       </span>
+       <button class="btn-solicitar bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md text-sm font-semibold transition">
+        Solicitar conexão
+       </button>
+       <button class="btn-ver-perfil bg-purple-700 hover:bg-purple-800 text-white px-4 py-2 rounded-md text-sm font-semibold transition">
+        Ver perfil
+       </button>
+       <button class="btn-rejeitar bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-md text-sm font-semibold transition">
+        Rejeitar
+       </button>
+      </div>
+     </li>
+     <li class="flex flex-col md:flex-row md:items-center md:justify-between bg-gray-50 rounded-lg p-4 shadow-sm">
+      <div class="flex items-center space-x-4">
+       <img alt="Foto de Carlos Silva, homem jovem, cabelos curtos pretos, vestindo camisa social branca, em ambiente corporativo" class="w-20 h-20 rounded-full object-cover" height="80" src="https://storage.googleapis.com/a1aa/image/a05fc0b3-0fd7-459e-6062-010c78b2ea0e.jpg" width="80"/>
+       <div>
+        <p class="font-semibold text-lg text-gray-900">
+         Carlos Silva
+        </p>
+        <p class="text-sm text-gray-600">
+         Candidato - Marketing
+        </p>
+       </div>
+      </div>
+      <div class="flex items-center space-x-6 mt-4 md:mt-0">
+       <span class="text-purple-700 font-semibold text-lg">
+        85%
+       </span>
+       <button class="btn-solicitar bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md text-sm font-semibold transition">
+        Solicitar conexão
+       </button>
+       <button class="btn-ver-perfil bg-purple-700 hover:bg-purple-800 text-white px-4 py-2 rounded-md text-sm font-semibold transition">
+        Ver perfil
+       </button>
+       <button class="btn-rejeitar bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-md text-sm font-semibold transition">
+        Rejeitar
+       </button>
+      </div>
+     </li>
+     <li class="flex flex-col md:flex-row md:items-center md:justify-between bg-gray-50 rounded-lg p-4 shadow-sm">
+      <div class="flex items-center space-x-4">
+       <img alt="Foto de Ana Beatriz, mulher sorridente, cabelos loiros lisos, vestindo blusa branca, em ambiente de escritório" class="w-20 h-20 rounded-full object-cover" height="80" src="https://storage.googleapis.com/a1aa/image/33785b3c-1f90-4b67-c4bb-1d7a749a095f.jpg" width="80"/>
+       <div>
+        <p class="font-semibold text-lg text-gray-900">
+         Ana Beatriz
+        </p>
+        <p class="text-sm text-gray-600">
+         Mentora - Finanças
+        </p>
+       </div>
+      </div>
+      <div class="flex items-center space-x-6 mt-4 md:mt-0">
+       <span class="text-purple-700 font-semibold text-lg">
+        83%
+       </span>
+       <button class="btn-solicitar bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md text-sm font-semibold transition">
+        Solicitar conexão
+       </button>
+       <button class="btn-ver-perfil bg-purple-700 hover:bg-purple-800 text-white px-4 py-2 rounded-md text-sm font-semibold transition">
+        Ver perfil
+       </button>
+       <button class="btn-rejeitar bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-md text-sm font-semibold transition">
+        Rejeitar
+       </button>
+      </div>
+     </li>
+     <li class="flex flex-col md:flex-row md:items-center md:justify-between bg-gray-50 rounded-lg p-4 shadow-sm">
+      <div class="flex items-center space-x-4">
+       <img alt="Foto de Lucas Pereira, homem jovem, cabelos castanhos curtos, vestindo camiseta cinza, em ambiente informal" class="w-20 h-20 rounded-full object-cover" height="80" src="https://storage.googleapis.com/a1aa/image/1afdf99c-2c60-4ab6-20be-590b6fcdb563.jpg" width="80"/>
+       <div>
+        <p class="font-semibold text-lg text-gray-900">
+         Lucas Pereira
+        </p>
+        <p class="text-sm text-gray-600">
+         Candidato - Tecnologia
+        </p>
+       </div>
+      </div>
+      <div class="flex items-center space-x-6 mt-4 md:mt-0">
+       <span class="text-purple-700 font-semibold text-lg">
+        80%
+       </span>
+       <button class="btn-solicitar bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md text-sm font-semibold transition">
+        Solicitar conexão
+       </button>
+       <button class="btn-ver-perfil bg-purple-700 hover:bg-purple-800 text-white px-4 py-2 rounded-md text-sm font-semibold transition">
+        Ver perfil
+       </button>
+       <button class="btn-rejeitar bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-md text-sm font-semibold transition">
+        Rejeitar
+       </button>
+      </div>
+     </li>
+     <li class="flex flex-col md:flex-row md:items-center md:justify-between bg-gray-50 rounded-lg p-4 shadow-sm">
+      <div class="flex items-center space-x-4">
+       <img alt="Foto de Fernanda Costa, mulher sorridente, cabelos castanhos claros, vestindo blusa verde, em ambiente profissional" class="w-20 h-20 rounded-full object-cover" height="80" src="https://storage.googleapis.com/a1aa/image/58112c1d-e90f-4094-8165-1477ae0fb006.jpg" width="80"/>
+       <div>
+        <p class="font-semibold text-lg text-gray-900">
+         Fernanda Costa
+        </p>
+        <p class="text-sm text-gray-600">
+         Mentora - Educação
+        </p>
+       </div>
+      </div>
+      <div class="flex items-center space-x-6 mt-4 md:mt-0">
+       <span class="text-purple-700 font-semibold text-lg">
+        78%
+       </span>
+       <button class="btn-solicitar bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md text-sm font-semibold transition">
+        Solicitar conexão
+       </button>
+       <button class="btn-ver-perfil bg-purple-700 hover:bg-purple-800 text-white px-4 py-2 rounded-md text-sm font-semibold transition">
+        Ver perfil
+       </button>
+       <button class="btn-rejeitar bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-md text-sm font-semibold transition">
+        Rejeitar
+       </button>
+      </div>
+     </li>
+    </ul>
+   </section>
+   <!-- Perfil Detalhado Section -->
+   <section aria-label="Perfil detalhado do usuário" class="hidden max-w-4xl mx-auto bg-white rounded-lg shadow-md p-6 mb-12" id="perfil-detalhado">
+    <h2 class="text-3xl font-bold text-purple-700 mb-6">
+     Perfil Detalhado
+    </h2>
+    <div class="flex flex-col md:flex-row md:space-x-8">
+     <div class="flex-shrink-0 mb-6 md:mb-0">
+      <img alt="Foto de Juliana Martins, mulher sorridente, cabelos castanhos ondulados, vestindo blusa azul, em ambiente profissional" class="w-40 h-40 rounded-full object-cover shadow-md" height="160" src="https://storage.googleapis.com/a1aa/image/50b37881-e5cd-4314-6552-b506604f0750.jpg" width="160"/>
+     </div>
+     <div class="flex-grow">
+      <h3 class="text-2xl font-semibold text-gray-900 mb-1">
+       Juliana Martins
+      </h3>
+      <p class="text-purple-700 font-semibold mb-3">
+       Mentora - Tecnologia
+      </p>
+      <p class="text-gray-700 mb-4">
+       Profissional com mais de 10 anos de experiência em desenvolvimento de software e liderança de equipes. Apaixonada por inovação e desenvolvimento pessoal.
+      </p>
+      <div class="mb-6">
+       <h4 class="font-semibold text-purple-700 mb-2">
+        Gráfico do perfil DISC
+       </h4>
+       <div class="w-full max-w-md">
+        <svg aria-label="Gráfico radar do perfil DISC de Juliana Martins" class="w-full h-48" viewbox="0 0 200 200">
+         <polygon fill="#ddd" points="100,20 160,60 160,140 100,180 40,140 40,60">
+         </polygon>
+         <polygon fill="#7c3aed" fill-opacity="0.6" points="100,50 140,80 130,130 90,150 60,120 70,70">
+         </polygon>
+         <text fill="#7c3aed" font-size="12" font-weight="600" text-anchor="middle" x="100" y="15">
+          D
+         </text>
+         <text fill="#7c3aed" font-size="12" font-weight="600" text-anchor="middle" x="170" y="65">
+          I
+         </text>
+         <text fill="#7c3aed" font-size="12" font-weight="600" text-anchor="middle" x="170" y="145">
+          S
+         </text>
+         <text fill="#7c3aed" font-size="12" font-weight="600" text-anchor="middle" x="100" y="195">
+          C
+         </text>
+         <text fill="#7c3aed" font-size="12" font-weight="600" text-anchor="middle" x="30" y="145">
+          C
+         </text>
+         <text fill="#7c3aed" font-size="12" font-weight="600" text-anchor="middle" x="30" y="65">
+          D
+         </text>
+        </svg>
+       </div>
+      </div>
+      <div>
+       <h4 class="font-semibold text-purple-700 mb-2">
+        Histórico de interações com Juliana Martins
+       </h4>
+       <ul class="max-h-40 overflow-y-auto border border-gray-300 rounded-md p-3 bg-gray-50 text-sm text-gray-700 space-y-2">
+        <li>
+         <span class="font-semibold">
+          Solicitação enviada
+         </span>
+         - 10/03/2024 -
+         <span class="italic">
+          Pendente
+         </span>
+        </li>
+        <li>
+         <span class="font-semibold">
+          Mentoria iniciada
+         </span>
+         - 15/03/2024 -
+         <span class="italic">
+          Ativa
+         </span>
+        </li>
+        <li>
+         <span class="font-semibold">
+          Feedback recebido
+         </span>
+         - 01/04/2024 -
+         <span class="italic">
+          Positivo
+         </span>
+        </li>
+       </ul>
+      </div>
+      <button class="mt-6 bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-md transition flex items-center space-x-2" id="btn-solicitar-mentoria">
+       <i class="fas fa-handshake">
+       </i>
+       <span>
+        Solicitar Mentoria
+       </span>
+      </button>
+     </div>
+    </div>
+   </section>
+   <!-- Confirmação Manual Section -->
+   <section aria-label="Confirmação manual de recomendações" class="hidden max-w-4xl mx-auto bg-white rounded-lg shadow-md p-6 mb-12" id="confirmacao">
+    <h2 class="text-3xl font-bold text-purple-700 mb-6">
+     Confirmação Manual
+    </h2>
+    <p class="mb-6 text-gray-700">
+     Gestores ou RH podem revisar recomendações feitas pela IA e tomar decisões.
+    </p>
+    <ul class="space-y-6 max-h-96 overflow-y-auto">
+     <li class="border border-gray-300 rounded-md p-4 bg-gray-50">
+      <div class="flex items-center justify-between mb-3">
+       <div>
+        <p class="font-semibold text-lg text-gray-900">
+         Juliana Martins - Mentora - Tecnologia
+        </p>
+        <p class="text-sm text-gray-600">
+         Compatibilidade: 88%
+        </p>
+       </div>
+       <div class="space-x-3">
+        <button class="btn-aprovar bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md text-sm font-semibold transition">
+         Aprovar
+        </button>
+        <button class="btn-ajustar bg-yellow-400 hover:bg-yellow-500 text-gray-900 px-4 py-2 rounded-md text-sm font-semibold transition">
+         Ajustar
+        </button>
+        <button class="btn-rejeitar bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-md text-sm font-semibold transition">
+         Rejeitar
+        </button>
+       </div>
+      </div>
+      <textarea class="w-full rounded-md border border-gray-300 p-2 resize-y focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-yellow-400" disabled="" placeholder="Comentários para ajuste..." rows="3"></textarea>
+     </li>
+     <li class="border border-gray-300 rounded-md p-4 bg-gray-50">
+      <div class="flex items-center justify-between mb-3">
+       <div>
+        <p class="font-semibold text-lg text-gray-900">
+         Carlos Silva - Candidato - Marketing
+        </p>
+        <p class="text-sm text-gray-600">
+         Compatibilidade: 85%
+        </p>
+       </div>
+       <div class="space-x-3">
+        <button class="btn-aprovar bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md text-sm font-semibold transition">
+         Aprovar
+        </button>
+        <button class="btn-ajustar bg-yellow-400 hover:bg-yellow-500 text-gray-900 px-4 py-2 rounded-md text-sm font-semibold transition">
+         Ajustar
+        </button>
+        <button class="btn-rejeitar bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-md text-sm font-semibold transition">
+         Rejeitar
+        </button>
+       </div>
+      </div>
+      <textarea class="w-full rounded-md border border-gray-300 p-2 resize-y focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-yellow-400" disabled="" placeholder="Comentários para ajuste..." rows="3"></textarea>
+     </li>
+     <li class="border border-gray-300 rounded-md p-4 bg-gray-50">
+      <div class="flex items-center justify-between mb-3">
+       <div>
+        <p class="font-semibold text-lg text-gray-900">
+         Ana Beatriz - Mentora - Finanças
+        </p>
+        <p class="text-sm text-gray-600">
+         Compatibilidade: 83%
+        </p>
+       </div>
+       <div class="space-x-3">
+        <button class="btn-aprovar bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md text-sm font-semibold transition">
+         Aprovar
+        </button>
+        <button class="btn-ajustar bg-yellow-400 hover:bg-yellow-500 text-gray-900 px-4 py-2 rounded-md text-sm font-semibold transition">
+         Ajustar
+        </button>
+        <button class="btn-rejeitar bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-md text-sm font-semibold transition">
+         Rejeitar
+        </button>
+       </div>
+      </div>
+      <textarea class="w-full rounded-md border border-gray-300 p-2 resize-y focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-yellow-400" disabled="" placeholder="Comentários para ajuste..." rows="3"></textarea>
+     </li>
+    </ul>
+   </section>
+   <!-- Feedback Section -->
+   <section aria-label="Área de feedback" class="hidden max-w-4xl mx-auto bg-white rounded-lg shadow-md p-6 mb-12" id="feedback">
+    <h2 class="text-3xl font-bold text-purple-700 mb-6">
+     Feedback
+    </h2>
+    <form class="space-y-6" id="form-feedback">
+     <div>
+      <label class="block text-sm font-medium text-gray-700" for="conexao-feedback">
+       Selecione a conexão
+      </label>
+      <select class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-purple-500 focus:ring focus:ring-purple-300 focus:ring-opacity-50" id="conexao-feedback" name="conexao-feedback" required="">
+       <option disabled="" selected="" value="">
+        Escolha uma conexão
+       </option>
+       <option value="juliana-martins">
+        Juliana Martins
+       </option>
+       <option value="carlos-silva">
+        Carlos Silva
+       </option>
+       <option value="ana-beatriz">
+        Ana Beatriz
+       </option>
+       <option value="lucas-pereira">
+        Lucas Pereira
+       </option>
+       <option value="fernanda-costa">
+        Fernanda Costa
+       </option>
+      </select>
+     </div>
+     <fieldset class="border border-gray-300 rounded-md p-4">
+      <legend class="text-purple-700 font-semibold mb-2">
+       Avaliação
+      </legend>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+       <div>
+        <label class="block text-sm font-medium text-gray-700" for="nota-satisfacao">
+         Nota de satisfação (0 a 10)
+        </label>
+        <input class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-purple-500 focus:ring focus:ring-purple-300 focus:ring-opacity-50" id="nota-satisfacao" max="10" min="0" name="nota-satisfacao" required="" step="1" type="number"/>
+       </div>
+       <div>
+        <label class="block text-sm font-medium text-gray-700" for="nota-compatibilidade">
+         Nota de compatibilidade (0 a 10)
+        </label>
+        <input class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-purple-500 focus:ring focus:ring-purple-300 focus:ring-opacity-50" id="nota-compatibilidade" max="10" min="0" name="nota-compatibilidade" required="" step="1" type="number"/>
+       </div>
+      </div>
+     </fieldset>
+     <div>
+      <label class="block text-sm font-medium text-gray-700" for="comentario-feedback">
+       Comentário
+      </label>
+      <textarea class="mt-1 block w-full rounded-md border-gray-300 shadow-sm resize-y focus:border-purple-500 focus:ring focus:ring-purple-300 focus:ring-opacity-50" id="comentario-feedback" name="comentario-feedback" placeholder="Descreva sua experiência..." rows="4"></textarea>
+     </div>
+     <button class="bg-purple-700 hover:bg-purple-800 text-white font-semibold py-3 rounded-md w-full transition" type="submit">
+      Enviar Feedback
+     </button>
+    </form>
+   </section>
+   <!-- Configurações Section -->
+   <section aria-label="Configurações do usuário" class="hidden max-w-4xl mx-auto bg-white rounded-lg shadow-md p-6 mb-12" id="configuracoes">
+    <h2 class="text-3xl font-bold text-purple-700 mb-6">
+     Configurações
+    </h2>
+    <form class="space-y-6" id="form-configuracoes">
+     <fieldset class="border border-gray-300 rounded-md p-4">
+      <legend class="text-purple-700 font-semibold mb-2">
+       Atualizar perfil DISC
+      </legend>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+       <div>
+        <label class="block text-sm font-medium text-gray-700" for="config-disc-d">
+         Dominância (D)
+        </label>
+        <input class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-purple-500 focus:ring focus:ring-purple-300 focus:ring-opacity-50" id="config-disc-d" max="100" min="0" name="config-disc-d" step="1" type="number"/>
+       </div>
+       <div>
+        <label class="block text-sm font-medium text-gray-700" for="config-disc-i">
+         Influência (I)
+        </label>
+        <input class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-purple-500 focus:ring focus:ring-purple-300 focus:ring-opacity-50" id="config-disc-i" max="100" min="0" name="config-disc-i" step="1" type="number"/>
+       </div>
+       <div>
+        <label class="block text-sm font-medium text-gray-700" for="config-disc-s">
+         Estabilidade (S)
+        </label>
+        <input class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-purple-500 focus:ring focus:ring-purple-300 focus:ring-opacity-50" id="config-disc-s" max="100" min="0" name="config-disc-s" step="1" type="number"/>
+       </div>
+       <div>
+        <label class="block text-sm font-medium text-gray-700" for="config-disc-c">
+         Conformidade (C)
+        </label>
+        <input class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-purple-500 focus:ring focus:ring-purple-300 focus:ring-opacity-50" id="config-disc-c" max="100" min="0" name="config-disc-c" step="1" type="number"/>
+       </div>
+      </div>
+     </fieldset>
+     <fieldset class="border border-gray-300 rounded-md p-4">
+      <legend class="text-purple-700 font-semibold mb-2">
+       Filtros padrão para matching
+      </legend>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+       <div>
+        <label class="block text-sm font-medium text-gray-700" for="config-filtro-tipo">
+         Tipo
+        </label>
+        <select class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-purple-500 focus:ring focus:ring-purple-300 focus:ring-opacity-50" id="config-filtro-tipo" name="config-filtro-tipo">
+         <option value="">
+          Todos
+         </option>
+         <option value="mentor">
+          Mentor
+         </option>
+         <option value="candidato">
+          Candidato
+         </option>
+         <option value="empresa">
+          Empresa
+         </option>
+        </select>
+       </div>
+       <div>
+        <label class="block text-sm font-medium text-gray-700" for="config-filtro-area">
+         Área
+        </label>
+        <select class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-purple-500 focus:ring focus:ring-purple-300 focus:ring-opacity-50" id="config-filtro-area" name="config-filtro-area">
+         <option value="">
+          Todas
+         </option>
+         <option value="tecnologia">
+          Tecnologia
+         </option>
+         <option value="educacao">
+          Educação
+         </option>
+         <option value="saude">
+          Saúde
+         </option>
+         <option value="financas">
+          Finanças
+         </option>
+         <option value="marketing">
+          Marketing
+         </option>
+         <option value="outros">
+          Outros
+         </option>
+        </select>
+       </div>
+       <div>
+        <label class="block text-sm font-medium text-gray-700" for="config-filtro-disc">
+         Perfil DISC
+        </label>
+        <select class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-purple-500 focus:ring focus:ring-purple-300 focus:ring-opacity-50" id="config-filtro-disc" name="config-filtro-disc">
+         <option value="">
+          Todos
+         </option>
+         <option value="D">
+          Dominância (D)
+         </option>
+         <option value="I">
+          Influência (I)
+         </option>
+         <option value="S">
+          Estabilidade (S)
+         </option>
+         <option value="C">
+          Conformidade (C)
+         </option>
+        </select>
+       </div>
+      </div>
+     </fieldset>
+     <fieldset class="border border-gray-300 rounded-md p-4">
+      <legend class="text-purple-700 font-semibold mb-2">
+       Preferências de notificações
+      </legend>
+      <div class="flex flex-col space-y-3">
+       <label class="inline-flex items-center space-x-2">
+        <input class="rounded border-gray-300 text-purple-600 focus:ring-purple-500" id="notif-email" name="notif-email" type="checkbox"/>
+        <span>
+         E-mail
+        </span>
+       </label>
+       <label class="inline-flex items-center space-x-2">
+        <input class="rounded border-gray-300 text-purple-600 focus:ring-purple-500" id="notif-sms" name="notif-sms" type="checkbox"/>
+        <span>
+         SMS
+        </span>
+       </label>
+      </div>
+     </fieldset>
+     <fieldset class="border border-gray-300 rounded-md p-4">
+      <legend class="text-purple-700 font-semibold mb-2">
+       Visibilidade do perfil
+      </legend>
+      <div class="flex flex-col space-y-3">
+       <label class="inline-flex items-center space-x-2">
+        <input checked="" class="rounded border-gray-300 text-purple-600 focus:ring-purple-500" name="visibilidade" type="radio" value="publico"/>
+        <span>
+         Público
+        </span>
+       </label>
+       <label class="inline-flex items-center space-x-2">
+        <input class="rounded border-gray-300 text-purple-600 focus:ring-purple-500" name="visibilidade" type="radio" value="privado"/>
+        <span>
+         Privado
+        </span>
+       </label>
+      </div>
+     </fieldset>
+     <button class="bg-purple-700 hover:bg-purple-800 text-white font-semibold py-3 rounded-md w-full transition" type="submit">
+      Salvar configurações
+     </button>
+    </form>
+   </section>
+   <!-- Ajuda e Suporte Section -->
+   <section aria-label="Ajuda e suporte" class="hidden max-w-4xl mx-auto bg-white rounded-lg shadow-md p-6 mb-12" id="ajuda">
+    <h2 class="text-3xl font-bold text-purple-700 mb-6">
+     Ajuda e Suporte
+    </h2>
+    <div class="space-y-8">
+     <div>
+      <h3 class="text-xl font-semibold text-purple-800 mb-3">
+       Instruções passo a passo
+      </h3>
+      <ol class="list-decimal list-inside text-gray-700 space-y-2">
+       <li>
+        Cadastre-se escolhendo seu tipo de perfil e setor de atuação.
+       </li>
+       <li>
+        Faça login com seu e-mail e senha ou via Google, Facebook ou LinkedIn.
+       </li>
+       <li>
+        Acesse o dashboard para ver recomendações e status das conexões.
+       </li>
+       <li>
+        Atualize seu perfil e preferências na seção Perfil.
+       </li>
+       <li>
+        Explore sugestões de matching e filtre conforme suas preferências.
+       </li>
+       <li>
+        Visualize perfis detalhados e solicite mentorias.
+       </li>
+       <li>
+        Gestores podem revisar recomendações na Confirmação Manual.
+       </li>
+       <li>
+        Deixe feedbacks para suas conexões na seção Feedback.
+       </li>
+       <li>
+        Configure notificações e visibilidade do perfil em Configurações.
+       </li>
+       <li>
+        Entre em contato com o suporte para dúvidas ou ajuda.
+       </li>
+      </ol>
+     </div>
+     <div>
+      <h3 class="text-xl font-semibold text-purple-800 mb-3">
+       Contato com suporte
+      </h3>
+      <ul class="space-y-2 text-gray-700">
+       <li>
+        <i class="fas fa-envelope mr-2 text-purple-700">
+        </i>
+        Email: suporte@meumentor.com.br
+       </li>
+       <li>
+        <i class="fas fa-phone mr-2 text-purple-700">
+        </i>
+        Telefone: +55 11 99999-9999
+       </li>
+       <li>
+        <i class="fas fa-comments mr-2 text-purple-700">
+        </i>
+        Chat ao vivo:
+        <button class="text-purple-700 underline font-semibold focus:outline-none" id="btn-chat">
+         Abrir chat
+        </button>
+       </li>
+      </ul>
+     </div>
+    </div>
+   </section>
+  </main>
+  <!-- Footer -->
+  <footer class="bg-purple-700 text-white py-6 mt-auto">
+   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm">
+    © 2024 Meu Mentor. Todos os direitos reservados.
+   </div>
+  </footer>
+  <!-- Chat Modal -->
+  <div class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50" id="modal-chat">
+   <div class="bg-white rounded-lg shadow-lg max-w-md w-full p-6 relative">
+    <button aria-label="Fechar chat" class="absolute top-3 right-3 text-gray-600 hover:text-gray-900 focus:outline-none" id="btn-close-chat">
+     <i class="fas fa-times text-xl">
+     </i>
+    </button>
+    <h3 class="text-xl font-semibold text-purple-700 mb-4">
+     Chat ao vivo - Suporte
+    </h3>
+    <div class="h-48 overflow-y-auto border border-gray-300 rounded-md p-3 mb-4 bg-gray-50 text-gray-700 text-sm" id="chat-messages">
+     <p>
+      <strong>
+       Suporte:
+      </strong>
+      Olá! Como podemos ajudar você hoje?
+     </p>
+    </div>
+    <form class="flex space-x-2" id="form-chat">
+     <input class="flex-grow rounded-md border border-gray-300 p-2 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500" id="input-chat" placeholder="Digite sua mensagem..." type="text"/>
+     <button class="bg-purple-700 hover:bg-purple-800 text-white px-4 rounded-md transition" type="submit">
+      Enviar
+     </button>
+    </form>
+   </div>
+  </div>
+  <script>
+   // Mobile menu toggle
+    const btnMenu = document.getElementById('btn-menu');
+    const mobileMenu = document.getElementById('mobile-menu');
+    btnMenu.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // Show register or login form toggle
+    const btnShowRegister = document.getElementById('btn-show-register');
+    const btnShowLogin = document.getElementById('btn-show-login');
+    const loginForm = document.getElementById('login-form');
+    const registerForm = document.getElementById('register-form');
+
+    btnShowRegister.addEventListener('click', () => {
+      loginForm.classList.add('hidden');
+      registerForm.classList.remove('hidden');
+    });
+    btnShowLogin.addEventListener('click', () => {
+      registerForm.classList.add('hidden');
+      loginForm.classList.remove('hidden');
+    });
+
+    // SPA navigation and section display
+    const sections = [
+      'login',
+      'dashboard',
+      'perfil',
+      'matching',
+      'perfil-detalhado',
+      'confirmacao',
+      'feedback',
+      'configuracoes',
+      'ajuda'
+    ];
+
+    function showSection(id) {
+      sections.forEach(sectionId => {
+        const section = document.getElementById(sectionId);
+        if (section) {
+          if (sectionId === id) {
+            section.classList.remove('hidden');
+          } else {
+            section.classList.add('hidden');
+          }
+        }
+      });
+      // Close mobile menu on navigation
+      if (!mobileMenu.classList.contains('hidden')) {
+        mobileMenu.classList.add('hidden');
+      }
+      // Scroll to top on section change
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // On page load, show login section
+    showSection('login');
+
+    // Handle anchor navigation
+    function handleAnchorNavigation() {
+      const hash = window.location.hash.replace('#', '');
+      if (sections.includes(hash)) {
+        showSection(hash);
+      } else {
+        showSection('login');
+      }
+    }
+
+    window.addEventListener('hashchange', handleAnchorNavigation);
+    window.addEventListener('load', handleAnchorNavigation);
+
+    // Simulate login
+    const formLogin = document.getElementById('form-login');
+    formLogin.addEventListener('submit', e => {
+      e.preventDefault();
+      // Simple validation
+      const email = formLogin['email-login'].value.trim();
+      const senha = formLogin['senha-login'].value.trim();
+      if (email && senha) {
+        // Simulate login success
+        window.location.hash = '#dashboard';
+      } else {
+        alert('Por favor, preencha e-mail e senha.');
+      }
+    });
+
+    // Simulate register
+    const formRegister = document.getElementById('form-register');
+    formRegister.addEventListener('submit', e => {
+      e.preventDefault();
+      const nome = formRegister['nome-register'].value.trim();
+      const email = formRegister['email-register'].value.trim();
+      const senha = formRegister['senha-register'].value.trim();
+      const tipo = formRegister['tipo-perfil'].value;
+      const setor = formRegister['setor'].value;
+      if (nome && email && senha.length >= 6 && tipo && setor) {
+        alert('Cadastro realizado com sucesso! Faça login.');
+        registerForm.classList.add('hidden');
+        loginForm.classList.remove('hidden');
+      } else {
+        alert('Por favor, preencha todos os campos corretamente.');
+      }
+    });
+
+    // Simulate profile save
+    const formPerfil = document.getElementById('form-perfil');
+    formPerfil.addEventListener('submit', e => {
+      e.preventDefault();
+      alert('Perfil atualizado com sucesso!');
+    });
+
+    // Simulate filtros matching submit
+    const formFiltros = document.getElementById('form-filtros');
+    formFiltros.addEventListener('change', e => {
+      e.preventDefault();
+      alert('Filtros aplicados! (Simulação)');
+    });
+
+    // Buttons in matching suggestions
+    document.querySelectorAll('#lista-sugestoes .btn-solicitar').forEach(btn => {
+      btn.addEventListener('click', () => {
+        alert('Solicitação de conexão enviada!');
+      });
+    });
+    document.querySelectorAll('#lista-sugestoes .btn-ver-perfil').forEach(btn => {
+      btn.addEventListener('click', () => {
+        window.location.hash = '#perfil-detalhado';
+      });
+    });
+    document.querySelectorAll('#lista-sugestoes .btn-rejeitar').forEach(btn => {
+      btn.addEventListener('click', () => {
+        alert('Conexão rejeitada.');
+      });
+    });
+
+    // Buttons rápido no dashboard
+    document.getElementById('btn-novo-matching').addEventListener('click', () => {
+      window.location.hash = '#matching';
+    });
+    document.getElementById('btn-atualizar-disc').addEventListener('click', () => {
+      window.location.hash = '#configuracoes';
+    });
+
+    // Solicitar mentoria no perfil detalhado
+    document.getElementById('btn-solicitar-mentoria').addEventListener('click', () => {
+      alert('Solicitação de mentoria enviada!');
+    });
+
+    // Confirmação manual buttons
+    document.querySelectorAll('#confirmacao .btn-ajustar').forEach(btn => {
+      btn.addEventListener('click', e => {
+        const container = e.target.closest('li');
+        const textarea = container.querySelector('textarea');
+        if (textarea.disabled) {
+          textarea.disabled = false;
+          textarea.focus();
+          e.target.textContent = 'Salvar ajuste';
+          e.target.classList.remove('bg-yellow-400', 'hover:bg-yellow-500');
+          e.target.classList.add('bg-green-600', 'hover:bg-green-700', 'text-white');
+        } else {
+          textarea.disabled = true;
+          alert('Ajuste salvo com sucesso!');
+          e.target.textContent = 'Ajustar';
+          e.target.classList.remove('bg-green-600', 'hover:bg-green-700', 'text-white');
+          e.target.classList.add('bg-yellow-400', 'hover:bg-yellow-500', 'text-gray-900');
+        }
+      });
+    });
+    document.querySelectorAll('#confirmacao .btn-aprovar').forEach(btn => {
+      btn.addEventListener('click', () => {
+        alert('Recomendação aprovada!');
+      });
+    });
+    document.querySelectorAll('#confirmacao .btn-rejeitar').forEach(btn => {
+      btn.addEventListener('click', () => {
+        alert('Recomendação rejeitada!');
+      });
+    });
+
+    // Feedback form submit
+    const formFeedback = document.getElementById('form-feedback');
+    formFeedback.addEventListener('submit', e => {
+      e.preventDefault();
+      const conexao = formFeedback['conexao-feedback'].value;
+      const satisfacao = formFeedback['nota-satisfacao'].value;
+      const compatibilidade = formFeedback['nota-compatibilidade'].value;
+      if (!conexao) {
+        alert('Selecione uma conexão para enviar feedback.');
+        return;
+      }
+      if (satisfacao === '' || compatibilidade === '') {
+        alert('Preencha as notas de satisfação e compatibilidade.');
+        return;
+      }
+      alert('Feedback enviado com sucesso!');
+      formFeedback.reset();
+    });
+
+    // Configurações form submit
+    const formConfiguracoes = document.getElementById('form-configuracoes');
+    formConfiguracoes.addEventListener('submit', e => {
+      e.preventDefault();
+      alert('Configurações salvas com sucesso!');
+    });
+
+    // Chat modal
+    const btnChat = document.getElementById('btn-chat');
+    const modalChat = document.getElementById('modal-chat');
+    const btnCloseChat = document.getElementById('btn-close-chat');
+    const formChat = document.getElementById('form-chat');
+    const inputChat = document.getElementById('input-chat');
+    const chatMessages = document.getElementById('chat-messages');
+
+    btnChat.addEventListener('click', () => {
+      modalChat.classList.remove('hidden');
+      modalChat.classList.add('flex');
+      inputChat.focus();
+    });
+    btnCloseChat.addEventListener('click', () => {
+      modalChat.classList.add('hidden');
+      modalChat.classList.remove('flex');
+      inputChat.value = '';
+    });
+
+    formChat.addEventListener('submit', e => {
+      e.preventDefault();
+      const msg = inputChat.value.trim();
+      if (!msg) return;
+      const userMsg = document.createElement('p');
+      userMsg.innerHTML = `<strong>Você:</strong> ${msg}`;
+      chatMessages.appendChild(userMsg);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+      inputChat.value = '';
+      // Simulate support reply
+      setTimeout(() => {
+        const supportMsg = document.createElement('p');
+        supportMsg.innerHTML = `<strong>Suporte:</strong> Obrigado pela mensagem! Em breve responderemos.`;
+        chatMessages.appendChild(supportMsg);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+      }, 1500);
+    });
+  </script>
+ </body>
+</html>
